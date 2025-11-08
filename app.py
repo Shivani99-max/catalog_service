@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from api.routes import product_bp
 
 app = Flask(__name__)
@@ -16,8 +16,8 @@ def health_check():
   """
     Basic health check endpoint for monitoring and Docker/K8s readiness probes.
     """
-    return jsonify({
+  return jsonify({
         "status": "ok",
         "service": "catalog-service",
         "message": "Service is healthy and running"
-    }), 200
+}), 200
